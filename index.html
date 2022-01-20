@@ -1,0 +1,46 @@
+<!DOCTYPE html> <html> <head> <title>Department of English | Student Tracking</title> <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script> <link rel="stylesheet" href="animate.css"> <link href="https://fonts.googleapis.com/css?family=Cormorant|Roboto:100" rel="stylesheet"> 
+
+<style>
+    
+    .logo { display: inline-block; margin: auto 0; } .google { color: #0099CC; background: transparent; border: 1px solid #0099CC; border-radius: 6px; } .nav { position: relative; float: right; padding: 60px 20px 15px 10px; text-align: right; z-index: 1; background: white; margin: 0 auto; } .nav ul { list-style: none; margin: 0; padding: 0; } .nav ul li { display: inline-block; list-style: none; margin: 0; padding: 0; font-family: 'Roboto', sans-serif; font-size: 1.3em; } .nav li a { text-decoration: none; color: black; margin: 4px; } h1.englogo { display: inline-block; padding-left: 1%; font-family: 'Cormorant', serif; position: relative; bottom: 15px; } header { height: 100px; width: 100%; z-index: 10; position: fixed; border-bottom: solid thin; background-color: white; } #content { width: 100%; text-align: center; position: relative; top: 200px; height: 1500px; font-family: 'Roboto', sans-serif; } #contentForm { widows: 100%; position: relative; top: 150px; height: 1500px; } form { width: 100%; position: relative; top: 90px; height: 1500px; font-family: 'Roboto', sans-serif; border: none; }
+    
+    
+</style> 
+
+
+</head> <body> <div id="container"> <header> <img src="olemiss.png" class="logo"> <h1 class="englogo">Department of English</h1> <div class="nav"> <ul> <li><a href="home.html">Home</a></li> <li><a href="submit.html">Submit</a></li> <li><a href="query.asp">Query</a></li> </ul> </div> <form id="newUserForm"> <h3>Complete the following form to add your student information to the database. </h3> <label for="Field1">First Name:</label><br> <input id="userfName" name="Field1" type="text" value=""><br><br> <label for="Field2">Last Name:</label><br> <input id="userlName" name="Field2" type="text" value=""><br><br> <fieldset> <legend>Program</legend> <ul> <li> <label for="title_1"> <input type="radio" id="undergraduate" name="title" value="Undergraduate" > Undergraduate </label> </li> <li> <label for="title_2"> <input type="radio" id="graduate" name="title" value="Graduate"> Graduate </label> </li> </ul> </fieldset><br> <label for="Field3">Graduate Year (XXXX):</label><br> <input id="gradDate" name="Field3" type="text" value=""><br><br> <input id="saveForm" name="saveForm" type="submit" value="Submit Form"> </form> </header> </div> <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+
+
+
+
+<script>
+var config = {
+    apiKey: "AIzaSyA_kyipbRucrtWAtf8jbULc1B0DBRHPHHU",
+
+
+    authDomain: "sharemedia-298b0.firebaseapp.com",
+
+
+    databaseURL: "https://sharemedia-298b0-default-rtdb.firebaseio.com/",
+
+
+    projectId: "sharemedia-298b0",
+
+
+    storageBucket: "sharemedia-298b0.appspot.com",
+
+
+    messagingSenderId: "453857796374"
+
+
+    
+  };
+
+firebase.initializeApp(config); var rootRef = firebase.database().ref().child('graduate'); $('#saveForm').click(function(){ rootRef.push().set({ firstName:$('#userfName').val(), lastName:$('#userlName').val() }); })
+</script>
+
+
+
+
+
+<script src="authentication.js"></script> </body> </html>
